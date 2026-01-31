@@ -105,16 +105,16 @@
 <section class="fade-in">
   <h2>📩 Contact Me</h2>
 
-  <form class="contact"
-        action="mailto:rahuljha12122@gmail.com"
-        method="post"
-        enctype="text/plain">
+  <section class="fade-in">
+  <h2>📩 Contact Me</h2>
 
-    <input type="text" name="Name" placeholder="Your Name" required>
-    <input type="email" name="Email" placeholder="Your Email" required>
-    <textarea name="Message" placeholder="Your Message" required></textarea>
+  <form class="contact" onsubmit="sendEmail(event)">
+    <input type="text" id="name" placeholder="Your Name" required>
+    <input type="email" id="email" placeholder="Your Email" required>
+    <textarea id="message" placeholder="Your Message" required></textarea>
 
     <button type="submit" class="btn">Send Message</button>
   </form>
 </section>
+
 
