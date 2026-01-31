@@ -9,22 +9,33 @@
 <body>
 
 <header class="hero fade-in">
-  <h1>📄 Resume</h1>
+  <h1>📄 Rahul Jha – Resume</h1>
   <p>Network Engineer | Cyber Security Professional</p>
-  <a class="btn primary" href="./assets/Rahul_Jha_Resume.pdf" download>
+
+  <!-- DOWNLOAD BUTTON -->
+  <a class="btn primary"
+     href="assets/Rahul_Jha_Resume.pdf"
+     download>
     ⬇ Download Resume
   </a>
 </header>
 
 <section class="section fade-in">
-  <div class="pdf-container">
-    <iframe src="./assets/Rahul_Jha_Resume.pdf"></iframe>
-  </div>
 
-  <p class="fallback">
-    If the resume does not load,
-    <a href="./assets/Rahul_Jha_Resume.pdf" target="_blank">click here</a>.
+  <!-- EMBED -->
+  <iframe
+    src="assets/Rahul_Jha_Resume.pdf"
+    style="width:100%; height:90vh; border:none;">
+  </iframe>
+
+  <!-- FALLBACK -->
+  <p style="text-align:center; margin-top:15px;">
+    Resume not loading?
+    <a href="assets/Rahul_Jha_Resume.pdf" target="_blank">
+      Click here to open
+    </a>
   </p>
+
 </section>
 
 </body>
