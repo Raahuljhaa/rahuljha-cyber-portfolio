@@ -104,15 +104,32 @@
 </section>
 
   <section class="fade-in">
+  <section class="fade-in">
   <h2>📩 Contact Me</h2>
 
-  <form class="contact" onsubmit="sendEmail(event)">
-    <input type="text" id="name" placeholder="Your Name" required>
-    <input type="email" id="email" placeholder="Your Email" required>
-    <textarea id="message" placeholder="Your Message" required></textarea>
+  <form class="contact"
+        action="https://formspree.io/f/xeekbokl"
+        method="POST">
+
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" placeholder="Your Message" required></textarea>
 
     <button type="submit" class="btn">Send Message</button>
   </form>
 </section>
+
+    <div style="margin-top:20px;">
+  <a class="btn" href="mailto:rahuljha12122@gmail.com">
+    📧 Email Me
+  </a>
+
+  <a class="btn"
+     href="https://wa.me/919318375640"
+     target="_blank">
+    💬 WhatsApp
+  </a>
+</div>
+
 
 
