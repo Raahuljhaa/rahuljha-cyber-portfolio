@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SOC Operations | Rahul Jha</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="hero">
+<h1>SOC Operations & Incident Response</h1>
+<p>Real-world SOC workflows & threat handling</p>
+<a href="index.html">⬅ Back to Home</a>
+</header>
+
+<section>
+<h2>🚨 Incident Case Study #1 – DDoS Detection</h2>
+<div class="card">
+<p><strong>Source:</strong> Firewall Logs (FortiGate)</p>
+<p><strong>Indicators:</strong> Abnormal session spikes, SYN floods</p>
+
+<h4>Detection</h4>
+<ul>
+<li>Monitored traffic anomalies via FortiGate logs</li>
+<li>Identified repeated IP patterns and session exhaustion</li>
+</ul>
+
+<h4>Response</h4>
+<ul>
+<li>Applied rate-limiting & geo-blocking</li>
+<li>Blocked malicious IP ranges</li>
+<li>Escalated to ISP & SOC lead</li>
+</ul>
+
+<h4>Outcome</h4>
+<p>Service availability restored with zero data loss.</p>
+</div>
+</section>
+
+<section>
+<h2>🚨 Incident Case Study #2 – Malware Detection</h2>
+<div class="card">
+<p><strong>Tool:</strong> Trellix Endpoint Security</p>
+
+<h4>Detection</h4>
+<ul>
+<li>Suspicious process execution</li>
+<li>Outbound C2 traffic detected</li>
+</ul>
+
+<h4>Response</h4>
+<ul>
+<li>Isolated endpoint from network</li>
+<li>Performed IOC analysis</li>
+<li>Re-imaged system & updated policies</li>
+</ul>
+
+<h4>Outcome</h4>
+<p>Threat neutralized, no lateral movement.</p>
+</div>
+</section>
+
+<section>
+<h2>🔁 SOC Workflow</h2>
+<pre class="workflow">
+Alert → Triage → Investigation → Containment → Eradication → RCA → Report
+</pre>
+</section>
+
+<footer>
+<p>© Rahul Jha | SOC Operations</p>
+</footer>
+
+</body>
+</html>
