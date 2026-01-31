@@ -1,57 +1,66 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  /* =========================
+  /* =====================
      FADE-IN ANIMATION
-  ========================== */
+  ====================== */
   const observer = new IntersectionObserver(entries => {
-    entries.forEach((entry, index) => {
+    entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.style.transitionDelay = `${index * 0.15}s`;
         entry.target.classList.add("visible");
       }
     });
   }, { threshold: 0.1 });
 
-  document.querySelectorAll(".fade-in").forEach(el => {
-    observer.observe(el);
-  });
+  document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
 
-  /* =========================
-     SOC CONSOLE TYPING EFFECT
-  ========================== */
-  const typingElement = document.getElementById("typing");
+  /* =====================
+     TERMINAL TYPING EFFECT
+  ====================== */
+  const typing = document.getElementById("typing");
 
-  if (typingElement) {
+  if (typing) {
     const lines = [
-      "Initializing SOC monitoring...",
-      "Loading firewall logs...",
-      "Analyzing network traffic...",
-      "Checking endpoint security...",
-      "SOC Status: OPERATIONAL"
+      "Initializing network services...",
+      "Loading firewall policies...",
+      "Monitoring traffic & threats...",
+      "Status: SECURE & OPERATIONAL"
     ];
 
-    let lineIndex = 0;
-    let charIndex = 0;
+    let i = 0, j = 0;
 
-    function typeLine() {
-      if (charIndex < lines[lineIndex].length) {
-        typingElement.innerHTML += lines[lineIndex][charIndex];
-        charIndex++;
-        setTimeout(typeLine, 45);
+    function type() {
+      if (j < lines[i].length) {
+        typing.innerHTML += lines[i][j++];
+        setTimeout(type, 40);
       } else {
-        typingElement.innerHTML += "<br>";
-        charIndex = 0;
-        lineIndex++;
-
-        if (lineIndex < lines.length) {
-          setTimeout(typeLine, 500);
-        }
+        typing.innerHTML += "<br>";
+        j = 0;
+        i++;
+        if (i < lines.length) setTimeout(type, 600);
       }
     }
 
-    typeLine();
+    type();
   }
 
-  console.log("SOC Portfolio Fully Loaded");
-
 });
+
+/* =====================
+   CONTACT FORM HANDLER
+====================== */
+function sendEmail(event) {
+  event.preventDefault();
+
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const message = document.getElementById("message").value;
+
+  const subject = `Portfolio Contact from ${name}`;
+  const body =
+    `Name: ${name}%0A` +
+    `Email: ${email}%0A%0A` +
+    `Message:%0A${message}`;
+
+  window.location.href =
+    `mailto:rahuljha12122@gmail.com?subject=${subject}&body=${body}`;
+}
