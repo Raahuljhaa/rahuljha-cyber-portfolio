@@ -1,55 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Resume | Rahul Jha</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Resume | Rahul Jha</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> <!-- For icons -->
 </head>
 
-<body>
+<body class="scanline-bg"> <!-- Added class for futuristic overlay -->
 
-<header class="hero fade-in">
-  <h1>📄 Rahul Jha – Resume</h1>
-  <p>Network Engineer | Cyber Security Professional</p>
+  <header class="hero fade-in glitch-text"> <!-- Added glitch -->
+    <h1><i class="fas fa-file-alt"></i> Rahul Jha – Resume</h1>
+    <p>Network Engineer | Cyber Security Professional</p>
 
-  <!-- PRIMARY ACTION -->
-  <a class="btn primary"
-     href="assets/Rahul_Jha_Resume.pdf"
-     target="_blank">
-    🔍 Open Resume
-  </a>
+    <!-- PRIMARY ACTION -->
+    <a class="btn primary neon-glow" href="assets/Rahul_Jha_Resume.pdf" target="_blank">
+      🔍 <i class="fas fa-external-link-alt"></i> Open Resume
+    </a>
 
-  <!-- DOWNLOAD -->
-  <a class="btn outline"
-     href="assets/Rahul_Jha_Resume.pdf"
-     download>
-    ⬇ Download Resume
-  </a>
-</header>
+    <!-- DOWNLOAD -->
+    <a class="btn outline neon-glow" href="assets/Rahul_Jha_Resume.pdf" download>
+      ⬇ <i class="fas fa-download"></i> Download Resume
+    </a>
+  </header>
 
-<section class="section fade-in">
+  <section class="section fade-in">
+    <h2 class="glitch">Resume Preview</h2> <!-- Glitch effect -->
 
-  <h2>Resume Preview</h2>
+    <!-- LOADING SPINNER -->
+    <div id="loading" class="loading-spinner">Loading secure document...</div>
 
-  <!-- EMBED ATTEMPT -->
-  <object data="assets/Rahul_Jha_Resume.pdf"
-          type="application/pdf"
-          width="100%"
-          height="800px">
+    <!-- IFRAME EMBED (Google Drive - Replace URL with yours) -->
+    <iframe id="resume-iframe" 
+            src="https://drive.google.com/file/d/YOUR_FILE_ID/preview" 
+            type="application/pdf" 
+            width="100%" 
+            height="800px" 
+            frameborder="0"
+            style="display: none;">
+    </iframe>
 
-    <p>
-      PDF preview not supported in this browser.
-      <br><br>
-      <a class="btn primary"
-         href="assets/Rahul_Jha_Resume.pdf"
-         target="_blank">
-        Click here to open resume
-      </a>
-    </p>
+    <!-- FALLBACK IMAGE PREVIEW -->
+    <img id="resume-fallback" 
+         src="assets/resume-preview.png" 
+         alt="Resume Preview" 
+         style="width: 100%; height: 800px; object-fit: cover; display: none; border-radius: 8px;"
+         onerror="document.getElementById('error').style.display='block';">
 
-  </object>
+    <!-- ERROR FALLBACK -->
+    <div id="error" style="display: none; text-align: center; padding: 20px;">
+      <p>Preview unavailable. <a class="btn primary" href="assets/Rahul_Jha_Resume.pdf" target="_blank">Open Full Resume</a></p>
+    </div>
 
-</section>
+    <!-- OPTIONAL: PDF.js INTEGRATION (Uncomment and add <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script> in head) -->
+    <!-- For client-side PDF rendering without Drive -->
+    <!-- <canvas id="pdf-canvas"></canvas> -->
+  </section>
+
+  <script>
+    // Simple loading logic
+    window.addEventListener('load', () => {
+      const loading = document.getElementById('loading');
+      const iframe = document.getElementById('resume-iframe');
+      const fallback = document.getElementById('resume-fallback');
+      
+      // Check if iframe loads (or use PDF.js)
+      setTimeout(() => {
+        loading.style.display = 'none';
+        iframe.style.display = 'block'; // Assume it works; add onload/onerror for production
+      }, 2000); // Placeholder delay
+
+      // Fallback trigger (e.g., if Drive blocked)
+      // iframe.onerror = () => { loading.style.display = 'none'; fallback.style.display = 'block'; };
+    });
+  </script>
 
 </body>
 </html>
