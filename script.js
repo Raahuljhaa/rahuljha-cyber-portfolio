@@ -1,6 +1,7 @@
 const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
+  entries.forEach((entry, index) => {
     if (entry.isIntersecting) {
+      entry.target.style.transitionDelay = `${index * 0.15}s`;
       entry.target.classList.add("visible");
     }
   });
@@ -10,4 +11,4 @@ document.querySelectorAll(".fade-in").forEach(el => {
   observer.observe(el);
 });
 
-console.log("Advanced SOC Portfolio Loaded");
+console.log("SOC Portfolio Animations Loaded");
