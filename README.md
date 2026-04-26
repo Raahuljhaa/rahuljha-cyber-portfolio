@@ -24,34 +24,51 @@
 
 ---
 
-### 🌃 Overview – Neural Uplink Established
+### 🌐 LIVE SSH CONSOLE (Realtime Terminal)
 
-Futuristic **cyberpunk-style portfolio** showcasing real-world experience in:
+```html
+<div style="background:#000; border:2px solid #00ff41; border-radius:8px; padding:15px; font-family:monospace; color:#00ff41; max-width:800px; margin:20px auto; box-shadow:0 0 30px #00ff41;">
+  <div style="color:#ff0055; margin-bottom:8px;">root@neural-grid:~# <span style="animation:blink 1s infinite;">█</span></div>
+  <div id="demo-terminal" style="height:180px; overflow:hidden; white-space:pre; font-size:14px; line-height:1.5;"></div>
+</div>
 
-- Network engineering & SD-WAN (Fortinet FortiGate 100F)
-- SOC operations, alert triage, incident response
-- Endpoint protection (Trellix, Zscaler), firewall log analysis
-- Ethical hacking labs (HTB, TryHackMe redacted writeups)
-- Virtualization (Proxmox), Arista SDN, Active Directory
+<script>
+const terminal = document.getElementById('demo-terminal');
+const commands = [
+  "Initializing secure tunnel...",
+  "Connecting to FortiGate-100F [OK]",
+  "nmap -sV -O 192.168.1.0/24",
+  "Discovered: 47 hosts | 12 open ports",
+  "ssh root@perimeter-node",
+  "whoami && cat /etc/shadow | grep root",
+  "SOC Alert: SYN Flood detected → Mitigated",
+  "Metasploit > use exploit/multi/http/struts2",
+  "Payload delivered. Root access granted.",
+  "Matrix sync complete → Neural uplink stable"
+];
 
-Built with **pure vanilla HTML/CSS/JS** — no frameworks, maximum control.
-
-**Signature features:**
-- Matrix rain background
-- Neon particle connections
-- Advanced glitch animations
-- Terminal typing sequence
-- Animated skill progress bars
-- 3D card tilt on hover
-- Scanline overlay + pulsing neon glows
-
----
-
-### 🚀 Quick Deploy
-
-```bash
-git clone https://github.com/Raahuljhaa/rahuljha-cyber-portfolio.git
-cd rahuljha-cyber-portfolio
-# Just open index.html in your browser
-# Or use live server:
-npx live-server .
+let line = 0;
+function typeCommand() {
+  terminal.innerHTML = '';
+  let i = 0;
+  const cmd = commands[line % commands.length];
+  
+  function type() {
+    if (i < cmd.length) {
+      terminal.innerHTML += cmd[i++];
+      setTimeout(type, 30 + Math.random()*40);
+    } else {
+      terminal.innerHTML += '<br><span style="color:#38bdf8;">$ </span>';
+      setTimeout(() => {
+        line++;
+        typeCommand();
+      }, 1800);
+    }
+  }
+  type();
+}
+typeCommand();
+</script>
+<style>
+@keyframes blink { 50% { opacity: 0; } }
+</style>
