@@ -23,6 +23,7 @@
   <nav>
     <a href="#about">PROFILE</a>
     <a href="#capabilities">CAPABILITIES</a>
+    <a href="#arsenal">ARSENAL</a>
     <a href="#certs">CLEARANCE</a>
     <a href="#experience">MISSION LOG</a>
     <a href="soc.html">SOC COMMAND</a>
@@ -40,7 +41,7 @@
   </div>
 </section>
 
-<!-- CAPABILITIES (Very Detailed) -->
+<!-- CAPABILITIES -->
 <section id="capabilities" class="section fade-in">
   <h2 class="glitch">CORE CAPABILITIES</h2>
   <div class="skills-grid grid">
@@ -57,27 +58,27 @@
     <div class="skill-card card">
       <span>Ethical Hacking & Penetration Testing</span>
       <div class="progress-bar"><div class="bar" data-progress="88"></div></div>
-      <small>Nmap • Burp • Metasploit • Privilege escalation • Web app pentesting</small>
+      <small>Nmap • Burp • Metasploit • Privilege escalation</small>
     </div>
     <div class="skill-card card">
       <span>Network Automation & SDN</span>
       <div class="progress-bar"><div class="bar" data-progress="85"></div></div>
-      <small>Arista • Cisco • Python scripting for network tasks</small>
+      <small>Arista • Cisco • Python scripting</small>
     </div>
     <div class="skill-card card">
       <span>Endpoint Security & Hardening</span>
       <div class="progress-bar"><div class="bar" data-progress="90"></div></div>
-      <small>Trellix • Zscaler • Symantec DLP • EDR</small>
+      <small>Trellix • Zscaler • Symantec DLP</small>
     </div>
     <div class="skill-card card">
       <span>Virtualization & Infrastructure</span>
       <div class="progress-bar"><div class="bar" data-progress="82"></div></div>
-      <small>Proxmox VE • Active Directory • Linux server admin</small>
+      <small>Proxmox VE • Active Directory • Linux</small>
     </div>
   </div>
 </section>
 
-<!-- ARSENAL / TOOLS -->
+<!-- ARSENAL -->
 <section id="arsenal" class="section fade-in">
   <h2 class="glitch">OFFENSIVE & DEFENSIVE ARSENAL</h2>
   <div class="grid">
@@ -96,9 +97,8 @@
       <ul>
         <li>FortiGate 100F (IPS/IDS, SD-WAN)</li>
         <li>Trellix Endpoint • Zscaler ZIA</li>
-        <li>Splunk / ELK Stack basics</li>
+        <li>Splunk / ELK basics</li>
         <li>Suricata • Snort</li>
-        <li>OSINT tools • Volatility</li>
       </ul>
     </div>
     <div class="card">
@@ -107,7 +107,7 @@
         <li>Arista EOS • Cisco Meraki</li>
         <li>Routing/Switching (OSPF, BGP, VLAN)</li>
         <li>Proxmox VE • Docker basics</li>
-        <li>Linux • PowerShell • Python</li>
+        <li>Linux • Python</li>
       </ul>
     </div>
   </div>
@@ -143,9 +143,8 @@
     <h3>Concentrix — Senior Network & SOC Representative</h3>
     <span class="date">Jun 2025 – Present</span>
     <ul>
-      <li>Managing FortiGate 100F with SD-WAN, VPN tunnels, and advanced security policies</li>
+      <li>Managing FortiGate 100F with SD-WAN and advanced security policies</li>
       <li>Real-time SOC monitoring, DDoS mitigation, malware containment</li>
-      <li>Log analysis and threat escalation using SIEM tools</li>
     </ul>
   </div>
   <div class="card">
@@ -154,7 +153,6 @@
     <ul>
       <li>Active Directory administration and Group Policy enforcement</li>
       <li>Cisco AnyConnect & Zscaler VPN configuration</li>
-      <li>Endpoint hardening across Windows/Linux environments</li>
     </ul>
   </div>
   <div class="card">
@@ -163,7 +161,6 @@
     <ul>
       <li>Network troubleshooting and firewall management</li>
       <li>Vulnerability assessments and patch management</li>
-      <li>Reduced system downtime by 20% through proactive monitoring</li>
     </ul>
   </div>
 </section>
@@ -184,10 +181,11 @@
       <label for="email">COMM-LINK (EMAIL)</label>
     </div>
 
-    <div class="input-group">
-      <textarea name="message" id="message" placeholder=" " rows="7" required></textarea>
+    <div class="input-group payload-group">
+      <textarea name="message" id="message" placeholder=" " rows="8" required></textarea>
       <label for="message">TRANSMISSION PAYLOAD...</label>
       <div class="payload-scanline"></div>
+      <span class="typing-cursor" id="payload-cursor">█</span>
     </div>
 
     <button type="submit" class="btn cybr-btn primary glitch-btn" id="transmit-btn">
