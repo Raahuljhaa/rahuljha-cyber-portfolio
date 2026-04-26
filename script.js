@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
     packetEl.textContent = pkts + "M";
   }, 3800);
 
-  // ==================== LOOPING TYPING ANIMATION FOR PAYLOAD ====================
+  // ==================== ULTIMATE LOOPING + MIND-BLOWING PAYLOAD ANIMATION ====================
   function startPayloadTyping() {
     const textarea = document.getElementById('message');
     const cursor = document.getElementById('payload-cursor');
@@ -39,46 +39,52 @@ document.addEventListener("DOMContentLoaded", () => {
     const samplePayload = `Write here your message to transmit...
 
 Example:
-I want to discuss a freelance cybersecurity project.
-My company needs FortiGate firewall configuration support.
-Looking for SOC monitoring consultation.`;
+Hello Rahul,
+I am interested in your FortiGate SD-WAN and SOC expertise for my company.
+Can we discuss a project involving firewall hardening, incident response setup, and ethical hacking training?
+Looking forward to your thoughts.
+
+Best regards,
+Corporate Client`;
 
     let i = 0;
-    let isTyping = true;
 
     function type() {
-      if (i < samplePayload.length && isTyping) {
+      if (i < samplePayload.length) {
         textarea.value += samplePayload[i];
         i++;
 
-        // Random glitch effect
-        if (Math.random() < 0.08) {
-          textarea.value += ['█', '▓', '▒'][Math.floor(Math.random() * 3)];
+        // Activate extreme glow while typing
+        textarea.classList.add('typing-active');
+
+        // Random intense glitch bursts
+        if (Math.random() < 0.13) {
+          const glitchChars = ['█', '▓', '▒', '░', '■', '◆'];
+          textarea.value += glitchChars[Math.floor(Math.random() * glitchChars.length)];
           setTimeout(() => {
             textarea.value = textarea.value.slice(0, -1);
-          }, 60);
+          }, 65);
         }
 
         textarea.scrollTop = textarea.scrollHeight;
-        setTimeout(type, Math.random() * 35 + 25);
+        setTimeout(type, Math.random() * 28 + 18);
       } else {
-        // Finished typing - pause then restart loop
+        // Cycle complete
+        textarea.classList.remove('typing-active');
         payloadGroup.classList.add('typed');
         if (cursor) cursor.style.display = 'none';
 
         setTimeout(() => {
-          // Reset and start again
           textarea.value = '';
           i = 0;
           payloadGroup.classList.remove('typed');
           if (cursor) cursor.style.display = 'inline';
-          type(); // Restart the typing loop
-        }, 2800); // Pause 2.8 seconds before restarting
+          type();                    // Infinite loop
+        }, 2600);
       }
     }
 
-    // Start the first typing cycle
-    setTimeout(type, 800);
+    setTimeout(type, 1000);
   }
 
   startPayloadTyping();
