@@ -157,3 +157,30 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+// Cyberpunk Form Animations
+const contactForm = document.getElementById('contact-form');
+const transmitBtn = document.getElementById('transmit-btn');
+
+if (contactForm) {
+  contactForm.addEventListener('submit', function(e) {
+    // Prevent default temporarily for animation
+    e.preventDefault();
+
+    // Add glitch to button on click
+    transmitBtn.style.animation = 'btn-glitch 0.8s linear';
+
+    setTimeout(() => {
+      // Show success
+      contactForm.classList.add('success');
+      
+      alert("🚨 TRANSMISSION SENT\n\nPAYLOAD DELIVERED TO THE GRID.\nAWAITING ACKNOWLEDGMENT...");
+
+      // Reset after success
+      setTimeout(() => {
+        contactForm.classList.remove('success');
+        contactForm.reset();
+        transmitBtn.style.animation = '';
+      }, 1500);
+    }, 600);
+  });
+}
