@@ -171,11 +171,28 @@
 <!-- CONTACT -->
 <section id="contact" class="section fade-in">
   <h2 class="glitch">INITIATE SECURE TRANSMISSION</h2>
-  <form class="contact" action="https://formspree.io/f/xeekbokl" method="POST">
-    <input type="text" name="name" placeholder="OPERATIVE HANDLE" required>
-    <input type="email" name="email" placeholder="COMM-LINK (EMAIL)" required>
-    <textarea name="message" placeholder="PAYLOAD / MESSAGE..." rows="6" required></textarea>
-    <button type="submit" class="btn cybr-btn primary">TRANSMIT TO GRID</button>
+  
+  <form class="contact cyber-form" action="https://formspree.io/f/xeekbokl" method="POST" id="contact-form">
+    
+    <div class="input-group">
+      <input type="text" name="name" id="name" placeholder=" " required>
+      <label for="name">OPERATIVE HANDLE</label>
+    </div>
+
+    <div class="input-group">
+      <input type="email" name="email" id="email" placeholder=" " required>
+      <label for="email">COMM-LINK (EMAIL)</label>
+    </div>
+
+    <div class="input-group">
+      <textarea name="message" id="message" placeholder=" " rows="7" required></textarea>
+      <label for="message">TRANSMISSION PAYLOAD...</label>
+      <div class="payload-scanline"></div>
+    </div>
+
+    <button type="submit" class="btn cybr-btn primary glitch-btn" id="transmit-btn">
+      TRANSMIT TO GRID
+    </button>
   </form>
 
   <div class="quick-links">
