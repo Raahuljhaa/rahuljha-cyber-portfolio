@@ -5,10 +5,9 @@
   --secondary: #ff0055;
   --accent-blue: #38bdf8;
   --bg: #020617;
-  --card-bg: rgba(15, 23, 42, 0.94);
-  --glow: 0 0 25px var(--accent), 0 0 55px var(--accent);
-  --glow-pink: 0 0 25px var(--secondary), 0 0 55px var(--secondary);
-  --shadow: 0 0 45px var(--accent), 0 0 90px var(--secondary);
+  --card-bg: rgba(15, 23, 42, 0.96);
+  --text: #e0f2fe;
+  --text-secondary: #bae6fd;
 }
 
 body {
@@ -17,6 +16,7 @@ body {
   font-family: 'Orbitron', monospace;
   overflow-x: hidden;
   position: relative;
+  line-height: 1.7;
 }
 
 body.scanline-bg::before {
@@ -54,6 +54,7 @@ body.scanline-bg::before {
   letter-spacing: 6px;
   text-transform: uppercase;
   animation: glitch-main 2.8s infinite linear;
+  color: var(--accent);
 }
 
 .subtitle {
@@ -75,7 +76,8 @@ h2.glitch {
   font-size: 2.6rem;
   text-align: center;
   margin-bottom: 50px;
-  text-shadow: var(--glow);
+  text-shadow: 0 0 25px var(--accent);
+  color: var(--accent);
 }
 
 .grid {
@@ -94,11 +96,12 @@ h2.glitch {
   transition: all 0.5s cubic-bezier(0.23,1,0.32,1);
   position: relative;
   overflow: hidden;
+  color: var(--text);
 }
 
 .card:hover {
   transform: translateY(-20px) rotateX(10deg) rotateY(12deg);
-  box-shadow: var(--shadow);
+  box-shadow: 0 0 45px var(--accent), 0 0 90px var(--secondary);
   border-left-color: var(--secondary);
 }
 
@@ -119,6 +122,8 @@ h2.glitch {
 }
 
 .cybr-btn {
+  position: relative;
+  overflow: hidden;
   padding: 16px 40px;
   font-weight: 700;
   text-transform: uppercase;
@@ -140,27 +145,7 @@ h2.glitch {
   box-shadow: 0 0 70px var(--accent), 0 0 110px var(--secondary);
 }
 
-.contact input, .contact textarea {
-  padding: 16px;
-  background: rgba(0,0,0,0.6);
-  border: 2px solid var(--accent);
-  color: white;
-  font-family: inherit;
-}
-
-.fade-in {
-  opacity: 0;
-  transform: translateY(60px);
-  transition: all 1.3s ease;
-}
-
-.fade-in.visible { opacity: 1; transform: translateY(0); }
-
-@media (max-width: 768px) {
-  .main-glitch { font-size: 3.4rem; }
-  .neural-hud { position: static; justify-content: center; gap: 15px; margin-bottom: 20px; }
-}
-/* ==================== CYBERPUNK FORM ANIMATIONS ==================== */
+/* ==================== CYBERPUNK CONTACT FORM ==================== */
 
 .cyber-form {
   max-width: 680px;
@@ -170,7 +155,6 @@ h2.glitch {
   gap: 28px;
 }
 
-/* Floating Label + Neon Input */
 .input-group {
   position: relative;
 }
@@ -179,9 +163,9 @@ h2.glitch {
 .input-group textarea {
   width: 100%;
   padding: 18px 20px 8px;
-  background: rgba(3, 7, 18, 0.9);
+  background: rgba(3, 7, 18, 0.95);
   border: 2px solid var(--accent);
-  color: #e5e7eb;
+  color: #ffffff !important;
   font-family: 'Orbitron', monospace;
   font-size: 1.05rem;
   border-radius: 8px;
@@ -193,14 +177,14 @@ h2.glitch {
 .input-group textarea {
   min-height: 190px;
   padding-top: 24px;
+  color: #ffffff !important;
 }
 
-/* Floating Label */
 .input-group label {
   position: absolute;
   left: 20px;
   top: 18px;
-  color: #64748b;
+  color: #94a3b8;
   font-size: 0.95rem;
   pointer-events: none;
   transition: all 0.3s ease;
@@ -214,18 +198,14 @@ h2.glitch {
 .input-group textarea:not(:placeholder-shown) + label {
   top: -8px;
   font-size: 0.8rem;
-  color: var(--accent);
-  text-shadow: 0 0 10px var(--accent);
+  color: var(--secondary);
+  text-shadow: 0 0 12px var(--secondary);
 }
 
-/* Neon Focus + Glitch */
 .input-group input:focus,
 .input-group textarea:focus {
   border-color: var(--secondary);
-  box-shadow: 
-    0 0 15px var(--accent),
-    0 0 35px var(--secondary),
-    inset 0 0 20px rgba(255, 0, 85, 0.2);
+  box-shadow: 0 0 15px var(--accent), 0 0 35px var(--secondary);
   animation: neon-pulse 1.5s infinite alternate;
 }
 
@@ -234,7 +214,32 @@ h2.glitch {
   to   { box-shadow: 0 0 25px var(--accent), 0 0 55px var(--secondary); }
 }
 
-/* Payload Scanline Effect */
+/* Typing Cursor */
+.payload-group {
+  position: relative;
+}
+
+.typing-cursor {
+  position: absolute;
+  bottom: 28px;
+  right: 25px;
+  color: var(--accent);
+  font-size: 1.4rem;
+  animation: blink 0.8s infinite;
+  pointer-events: none;
+  z-index: 10;
+  text-shadow: 0 0 15px var(--accent);
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.payload-group.typed .typing-cursor {
+  display: none;
+}
+
 .payload-scanline {
   position: absolute;
   bottom: 0;
@@ -252,48 +257,27 @@ h2.glitch {
   100% { transform: translateX(300%); }
 }
 
-/* Glitch Button */
-.glitch-btn {
-  position: relative;
-  overflow: hidden;
+/* Footer */
+footer {
+  text-align: center;
+  padding: 50px 20px;
+  color: #cbd5e1;
+  border-top: 1px solid #1e293b;
 }
 
-.glitch-btn:hover::before {
-  content: attr(data-text);
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  color: var(--secondary);
-  animation: glitch-btn 0.4s linear infinite;
-  opacity: 0.8;
+/* Fade-in */
+.fade-in {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 1.3s ease;
 }
 
-.glitch-btn:hover {
-  animation: btn-glitch 0.6s linear infinite;
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-@keyframes btn-glitch {
-  0%   { transform: translate(0); }
-  20%  { transform: translate(-3px, 3px); }
-  40%  { transform: translate(-3px, -3px); }
-  60%  { transform: translate(3px, 3px); }
-  80%  { transform: translate(3px, -3px); }
-  100% { transform: translate(0); }
-}
-
-@keyframes glitch-btn {
-  0% { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
-  10% { clip-path: polygon(0 10%, 100% 5%, 100% 95%, 0 90%); }
-  20% { clip-path: polygon(0 20%, 100% 25%, 100% 80%, 0 75%); }
-}
-
-/* Form Success Animation */
-.cyber-form.success {
-  animation: form-success 0.8s ease;
-}
-
-@keyframes form-success {
-  0%   { filter: brightness(1); }
-  50%  { filter: brightness(2.5) hue-rotate(90deg); }
-  100% { filter: brightness(1); }
+@media (max-width: 768px) {
+  .main-glitch { font-size: 3.4rem; }
+  .neural-hud { position: static; justify-content: center; gap: 15px; margin-bottom: 20px; }
 }
