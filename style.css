@@ -219,7 +219,7 @@ h2.glitch {
   box-shadow: 0 0 70px var(--accent), 0 0 110px var(--secondary);
 }
 
-/* ==================== TRANSMISSION PAYLOAD BOX - FIXED CURSOR ==================== */
+/* ==================== TRANSMISSION PAYLOAD BOX - STRONG GREEN RIGHT BORDER ==================== */
 
 .cyber-form {
   max-width: 680px;
@@ -268,7 +268,7 @@ h2.glitch {
   text-shadow: 0 0 12px var(--secondary);
 }
 
-/* Ultimate Payload Box */
+/* Main Payload Box */
 .payload-group {
   position: relative;
   overflow: hidden;
@@ -276,9 +276,9 @@ h2.glitch {
 
 #message {
   width: 100%;
-  padding: 22px 48px 22px 22px;   /* Extra space for cursor */
-  background: rgba(3, 7, 18, 0.94);
-  border: 3px solid var(--accent);
+  padding: 22px 52px 22px 24px;     /* Extra padding for cursor */
+  background: rgba(3, 7, 18, 0.95);
+  border: 4px solid var(--accent);
   color: #ffffff !important;
   font-family: 'Orbitron', monospace;
   font-size: 1.06rem;
@@ -288,21 +288,52 @@ h2.glitch {
   min-height: 230px;
   position: relative;
   z-index: 2;
-  box-shadow: 0 0 25px var(--accent), inset 0 0 25px rgba(0, 255, 65, 0.2);
+  box-shadow: 
+    0 0 30px var(--accent),
+    inset 0 0 25px rgba(0, 255, 65, 0.25);
 }
 
-/* Holographic Border */
+/* Strong Green Right Border Glow */
+#message::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  bottom: -4px;
+  width: 10px;
+  background: linear-gradient(to bottom, transparent, var(--accent), var(--accent), transparent);
+  box-shadow: 
+    0 0 25px var(--accent),
+    0 0 50px var(--accent),
+    0 0 80px var(--accent);
+  z-index: 5;
+  border-radius: 0 12px 12px 0;
+  animation: right-glow 2.2s ease-in-out infinite alternate;
+}
+
+@keyframes right-glow {
+  from { 
+    opacity: 0.85; 
+    box-shadow: 0 0 25px var(--accent), 0 0 50px var(--accent); 
+  }
+  to { 
+    opacity: 1; 
+    box-shadow: 0 0 40px var(--accent), 0 0 75px var(--accent), 0 0 100px #ff0055; 
+  }
+}
+
+/* Holographic Rotating Border */
 .payload-group::before {
   content: '';
   position: absolute;
-  inset: -4px;
+  inset: -6px;
   border: 2px solid transparent;
   background: linear-gradient(45deg, var(--accent), var(--secondary), var(--accent-blue), var(--accent));
   background-size: 300% 300%;
-  border-radius: 14px;
+  border-radius: 16px;
   z-index: -1;
   animation: holographic-rotate 6s linear infinite;
-  opacity: 0.75;
+  opacity: 0.7;
 }
 
 @keyframes holographic-rotate {
@@ -311,25 +342,24 @@ h2.glitch {
   100% { background-position: 0% 50%; }
 }
 
-/* Extreme Neon Glow */
+/* Extreme Neon Glow on Focus */
 #message:focus,
 #message.typing-active {
-  animation: ultimate-neon 1.4s ease-in-out infinite alternate;
   border-color: var(--secondary);
+  animation: ultimate-neon 1.4s ease-in-out infinite alternate;
   box-shadow: 
-    0 0 30px var(--accent),
-    0 0 60px var(--accent),
-    0 0 100px var(--secondary),
-    0 0 140px #ff0055,
-    inset 0 0 40px rgba(255,0,85,0.4);
+    0 0 35px var(--accent),
+    0 0 70px var(--accent),
+    0 0 110px var(--secondary),
+    0 0 150px #ff0055;
 }
 
 @keyframes ultimate-neon {
   from {
-    text-shadow: 0 0 10px #00ff41, 0 0 25px #00ff41, 0 0 50px #38bdf8, 0 0 80px #ff0055;
+    text-shadow: 0 0 15px #00ff41, 0 0 30px #00ff41, 0 0 60px #38bdf8, 0 0 90px #ff0055;
   }
   to {
-    text-shadow: 0 0 20px #00ff41, 0 0 40px #00ff41, 0 0 70px #38bdf8, 0 0 110px #ff0055, 0 0 150px #ff0055;
+    text-shadow: 0 0 25px #00ff41, 0 0 50px #00ff41, 0 0 80px #38bdf8, 0 0 120px #ff0055, 0 0 160px #ff0055;
   }
 }
 
@@ -357,10 +387,10 @@ h2.glitch {
   100% { transform: translateX(350%); }
 }
 
-/* FIXED GREEN CURSOR - RIGHT SIDE */
+/* Green Typing Cursor */
 .typing-cursor {
   position: absolute;
-  right: 26px;
+  right: 28px;
   bottom: 34px;
   color: #00ff41;
   font-size: 1.9rem;
