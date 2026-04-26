@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
     packetEl.textContent = pkts + "M";
   }, 3800);
 
-  // ==================== SMART PAYLOAD TYPING ANIMATION ====================
+  // ==================== SMART PAYLOAD TYPING WITH PROPER CURSOR ====================
   let typingInterval = null;
   let isUserTyping = false;
 
@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 Example:
 Hello Rahul,
-I am interested in your FortiGate SD-WAN and SOC expertise.
+I am interested in your FortiGate SD-WAN and SOC expertise for my company.
 Can we discuss a project involving firewall hardening and incident response setup?
 Looking forward to your thoughts.`;
 
@@ -67,19 +67,18 @@ Looking forward to your thoughts.`;
       typingInterval = setTimeout(type, Math.random() * 30 + 20);
     }
 
-    // Start typing
     typingInterval = setTimeout(type, 900);
 
-    // STOP TYPING & CLEAR when user clicks or focuses on the box
+    // STOP TYPING AND CLEAR WHEN USER CLICKS/FOCUSES
     textarea.addEventListener('focus', () => {
       isUserTyping = true;
       clearTimeout(typingInterval);
-      textarea.value = '';                    // Clear the demo text
+      textarea.value = '';                    // Clear demo text
       textarea.classList.remove('typing-active');
       if (cursor) cursor.style.display = 'none';
     });
 
-    // Optional: Allow user to restart demo if they delete everything
+    // Allow restart if user clears the box
     textarea.addEventListener('input', () => {
       if (textarea.value.trim() === '') {
         isUserTyping = false;
