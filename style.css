@@ -34,14 +34,7 @@ body.scanline-bg::before {
   100% { transform: translateY(400%); } 
 }
 
-/* Hero & Satellite */
-.hero {
-  text-align: center;
-  padding: 110px 20px 90px;
-  background: linear-gradient(135deg, var(--bg) 30%, rgba(56,189,248,0.1) 100%);
-  position: relative;
-}
-
+/* Satellite Transmitter - Top Left */
 .satellite-transmitter {
   position: absolute;
   top: 25px;
@@ -124,7 +117,7 @@ body.scanline-bg::before {
   40% { opacity: 1; }
 }
 
-/* Main Content */
+/* Main Title */
 .main-glitch {
   font-size: 4.8rem;
   font-weight: 900;
@@ -226,7 +219,7 @@ h2.glitch {
   box-shadow: 0 0 70px var(--accent), 0 0 110px var(--secondary);
 }
 
-/* ==================== ULTIMATE TRANSMISSION PAYLOAD BOX ==================== */
+/* ==================== TRANSMISSION PAYLOAD BOX - FIXED CURSOR ==================== */
 
 .cyber-form {
   max-width: 680px;
@@ -275,7 +268,7 @@ h2.glitch {
   text-shadow: 0 0 12px var(--secondary);
 }
 
-/* Ultimate Mind-Blowing Payload Box */
+/* Ultimate Payload Box */
 .payload-group {
   position: relative;
   overflow: hidden;
@@ -283,7 +276,7 @@ h2.glitch {
 
 #message {
   width: 100%;
-  padding: 22px 28px 22px 22px;
+  padding: 22px 48px 22px 22px;   /* Extra space for cursor */
   background: rgba(3, 7, 18, 0.94);
   border: 3px solid var(--accent);
   color: #ffffff !important;
@@ -298,7 +291,7 @@ h2.glitch {
   box-shadow: 0 0 25px var(--accent), inset 0 0 25px rgba(0, 255, 65, 0.2);
 }
 
-/* Holographic Rotating Border */
+/* Holographic Border */
 .payload-group::before {
   content: '';
   position: absolute;
@@ -318,7 +311,7 @@ h2.glitch {
   100% { background-position: 0% 50%; }
 }
 
-/* Extreme Realtime Neon Glow */
+/* Extreme Neon Glow */
 #message:focus,
 #message.typing-active {
   animation: ultimate-neon 1.4s ease-in-out infinite alternate;
@@ -340,7 +333,7 @@ h2.glitch {
   }
 }
 
-/* Multiple Dynamic Scanlines */
+/* Scanlines */
 .payload-scanline {
   position: absolute;
   bottom: 0;
@@ -364,16 +357,22 @@ h2.glitch {
   100% { transform: translateX(350%); }
 }
 
+/* FIXED GREEN CURSOR - RIGHT SIDE */
 .typing-cursor {
   position: absolute;
-  bottom: 35px;
-  right: 32px;
+  right: 26px;
+  bottom: 34px;
   color: #00ff41;
-  font-size: 1.8rem;
-  animation: blink 0.6s infinite;
-  text-shadow: 0 0 15px #00ff41, 0 0 30px #00ff41, 0 0 50px #ff0055;
-  z-index: 10;
+  font-size: 1.9rem;
+  font-weight: bold;
+  animation: blink 0.65s infinite;
+  text-shadow: 
+    0 0 15px #00ff41,
+    0 0 35px #00ff41,
+    0 0 55px #ff0055;
+  z-index: 20;
   pointer-events: none;
+  line-height: 1;
 }
 
 @keyframes blink {
@@ -408,21 +407,4 @@ footer {
     left: 15px; 
     transform: scale(0.85); 
   }
-}
-
-/* Extra background scan enhancement */
-body::after {
-  content: '';
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: linear-gradient(transparent, rgba(0, 255, 65, 0.03));
-  pointer-events: none;
-  z-index: -4;
-  animation: subtle-flicker 8s infinite alternate;
-}
-
-@keyframes subtle-flicker {
-  0% { opacity: 0.6; }
-  100% { opacity: 0.85; }
 }
