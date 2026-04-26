@@ -26,49 +26,14 @@
 
 ### 🌐 LIVE SSH CONSOLE (Realtime Terminal)
 
-```html
-<div style="background:#000; border:2px solid #00ff41; border-radius:8px; padding:15px; font-family:monospace; color:#00ff41; max-width:800px; margin:20px auto; box-shadow:0 0 30px #00ff41;">
-  <div style="color:#ff0055; margin-bottom:8px;">root@neural-grid:~# <span style="animation:blink 1s infinite;">█</span></div>
-  <div id="demo-terminal" style="height:180px; overflow:hidden; white-space:pre; font-size:14px; line-height:1.5;"></div>
-</div>
-
-<script>
-const terminal = document.getElementById('demo-terminal');
-const commands = [
-  "Initializing secure tunnel...",
-  "Connecting to FortiGate-100F [OK]",
-  "nmap -sV -O 192.168.1.0/24",
-  "Discovered: 47 hosts | 12 open ports",
-  "ssh root@perimeter-node",
-  "whoami && cat /etc/shadow | grep root",
-  "SOC Alert: SYN Flood detected → Mitigated",
-  "Metasploit > use exploit/multi/http/struts2",
-  "Payload delivered. Root access granted.",
-  "Matrix sync complete → Neural uplink stable"
-];
-
-let line = 0;
-function typeCommand() {
-  terminal.innerHTML = '';
-  let i = 0;
-  const cmd = commands[line % commands.length];
-  
-  function type() {
-    if (i < cmd.length) {
-      terminal.innerHTML += cmd[i++];
-      setTimeout(type, 30 + Math.random()*40);
-    } else {
-      terminal.innerHTML += '<br><span style="color:#38bdf8;">$ </span>';
-      setTimeout(() => {
-        line++;
-        typeCommand();
-      }, 1800);
-    }
-  }
-  type();
-}
-typeCommand();
-</script>
-<style>
-@keyframes blink { 50% { opacity: 0; } }
-</style>
+```bash
+root@neural-grid:~# initializing secure uplink...
+root@neural-grid:~# nmap -sV -O 192.168.1.0/24
+Discovered 47 hosts | 12 open ports
+root@neural-grid:~# ssh root@fortigate-perimeter
+root@neural-grid:~# whoami && cat /var/log/soc_alert.log
+SOC Alert: SYN Flood detected → Rate-limited
+root@neural-grid:~# metasploit > use exploit/multi/http/struts2
+Payload delivered. Root access granted.
+root@neural-grid:~# matrix-sync --status
+Matrix integrity: 99.97% → ONLINE
