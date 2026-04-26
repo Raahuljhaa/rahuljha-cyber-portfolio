@@ -3,80 +3,191 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rahul Jha | Neural Cyber Interface v2.0</title>
+  <title>Rahul Jha | Cyber Operative v3.0</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <script defer src="script.js"></script>
 </head>
 <body class="scanline-bg">
 
-<header class="hero fade-in glitch-text">
+<header class="hero fade-in">
   <div class="neural-hud">
-    <span class="status">● NEURAL UPLINK: ONLINE</span>
-    <span class="threat">THREAT LEVEL: <span id="threat-level">NOMINAL</span></span>
+    <div><span class="status">● SYSTEM ONLINE</span></div>
+    <div>THREAT LEVEL: <span id="threat-level" class="threat">NOMINAL</span></div>
+    <div>PACKETS: <span id="packet-count">1.2M</span>/s</div>
   </div>
+
   <h1 class="main-glitch">RAHUL JHA</h1>
-  <p class="subtitle">NETWORK ENGINEER | SOC ANALYST | CYBER OPERATIVE</p>
+  <p class="subtitle">NETWORK DEFENDER | SOC ANALYST | ETHICAL HACKER | RED/BLUE TEAM OPERATIVE</p>
 
   <nav>
-    <a href="#about">ABOUT</a>
-    <a href="#skills">CAPABILITIES</a>
-    <a href="#tools">ARSENAL</a>
+    <a href="#about">PROFILE</a>
+    <a href="#capabilities">CAPABILITIES</a>
+    <a href="#arsenal">ARSENAL</a>
     <a href="#certs">CLEARANCE</a>
-    <a href="#experience">LOG</a>
-    <a href="soc.html">SOC OPS</a>
-    <a href="ctf.html">CTF LABS</a>
-    <a href="#contact">TRANSMIT</a>
+    <a href="#experience">MISSION LOG</a>
+    <a href="soc.html">SOC COMMAND</a>
+    <a href="ctf.html">RED TEAM LABS</a>
+    <a href="#contact">ESTABLISH LINK</a>
   </nav>
 </header>
 
 <!-- ABOUT -->
 <section id="about" class="section fade-in">
   <h2 class="glitch">SYSTEM PROFILE</h2>
-  <p>Cyber Security & Network Engineer specializing in Fortinet FortiGate 100F (SD-WAN), real-time SOC monitoring, incident response, Arista SDN, Proxmox, and endpoint defense. Defending perimeters. Hunting anomalies. Matrix synchronized.</p>
-</section>
-
-<!-- NEURAL CONSOLE -->
-<section class="section fade-in">
-  <h2 class="glitch">🖥️ NEURAL INTERFACE CONSOLE v2</h2>
-  <div class="terminal">
-    <span id="typing"></span><span class="cursor"></span>
+  <div class="card">
+    <p>Cyber Security & Network Engineer with hands-on expertise in Fortinet FortiGate 100F SD-WAN, enterprise SOC operations, incident response, Arista SDN, Proxmox virtualization, and endpoint protection. Specialized in threat hunting, perimeter defense, vulnerability assessment, and ethical hacking labs (Hack The Box, TryHackMe).</p>
+    <p><strong>Current Objective:</strong> Secure enterprise perimeters while actively simulating adversary tactics to strengthen defenses.</p>
   </div>
 </section>
 
-<!-- SKILLS -->
-<section id="skills" class="section fade-in">
-  <h2 class="glitch">CORE PROTOCOLS</h2>
+<!-- CAPABILITIES (Very Detailed) -->
+<section id="capabilities" class="section fade-in">
+  <h2 class="glitch">CORE CAPABILITIES</h2>
   <div class="skills-grid grid">
-    <!-- Skill cards remain similar but will get enhanced CSS -->
     <div class="skill-card card">
-      <span>FortiGate Firewall (SD-WAN, VPN)</span>
+      <span>FortiGate Firewall & SD-WAN</span>
       <div class="progress-bar"><div class="bar" data-progress="95"></div></div>
+      <small>Policy crafting • VPN • IPS • SD-WAN orchestration</small>
     </div>
-    <!-- Repeat for others... (same as before) -->
+    <div class="skill-card card">
+      <span>SOC Monitoring & Incident Response</span>
+      <div class="progress-bar"><div class="bar" data-progress="92"></div></div>
+      <small>Alert triage • Containment • Eradication • RCA</small>
+    </div>
+    <div class="skill-card card">
+      <span>Ethical Hacking & Penetration Testing</span>
+      <div class="progress-bar"><div class="bar" data-progress="88"></div></div>
+      <small>Nmap • Burp • Metasploit • Privilege escalation • Web app pentesting</small>
+    </div>
+    <div class="skill-card card">
+      <span>Network Automation & SDN</span>
+      <div class="progress-bar"><div class="bar" data-progress="85"></div></div>
+      <small>Arista • Cisco • Python scripting for network tasks</small>
+    </div>
+    <div class="skill-card card">
+      <span>Endpoint Security & Hardening</span>
+      <div class="progress-bar"><div class="bar" data-progress="90"></div></div>
+      <small>Trellix • Zscaler • Symantec DLP • EDR</small>
+    </div>
+    <div class="skill-card card">
+      <span>Virtualization & Infrastructure</span>
+      <div class="progress-bar"><div class="bar" data-progress="82"></div></div>
+      <small>Proxmox VE • Active Directory • Linux server admin</small>
+    </div>
   </div>
 </section>
 
-<!-- TOOLS, CERTS, EXPERIENCE – keep structure, enhanced via CSS/JS -->
+<!-- ARSENAL / TOOLS -->
+<section id="arsenal" class="section fade-in">
+  <h2 class="glitch">OFFENSIVE & DEFENSIVE ARSENAL</h2>
+  <div class="grid">
+    <div class="card">
+      <h3><i class="fas fa-skull-crossbones"></i> Red Team (Offensive)</h3>
+      <ul>
+        <li>Nmap • Masscan • Wireshark</li>
+        <li>Burp Suite • OWASP ZAP</li>
+        <li>Metasploit Framework</li>
+        <li>Hydra • John the Ripper • Hashcat</li>
+        <li>SQLMap • BeEF • Wifite</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3><i class="fas fa-shield-alt"></i> Blue Team (Defensive)</h3>
+      <ul>
+        <li>FortiGate 100F (IPS/IDS, SD-WAN)</li>
+        <li>Trellix Endpoint • Zscaler ZIA</li>
+        <li>Splunk / ELK Stack basics</li>
+        <li>Suricata • Snort</li>
+        <li>OSINT tools • Volatility</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3><i class="fas fa-network-wired"></i> Networking & Infra</h3>
+      <ul>
+        <li>Arista EOS • Cisco Meraki</li>
+        <li>Routing/Switching (OSPF, BGP, VLAN)</li>
+        <li>Proxmox VE • Docker basics</li>
+        <li>Linux • PowerShell • Python</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-<!-- CONTACT (unchanged form, enhanced visuals) -->
+<!-- CERTS -->
+<section id="certs" class="section fade-in">
+  <h2 class="glitch">SECURITY CLEARANCE</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Certified Ethical Hacker (CEH)</h3>
+      <p>2025 • EC-Council</p>
+    </div>
+    <div class="card">
+      <h3>Network Defense Essentials</h3>
+      <p>2024 • Cisco</p>
+    </div>
+    <div class="card">
+      <h3>Blue Team Professional</h3>
+      <p>2024 • Security Blue Team</p>
+    </div>
+    <div class="card">
+      <h3>Fortinet NSE 1-3</h3>
+      <p>In Progress</p>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="section fade-in">
+  <h2 class="glitch">MISSION LOG</h2>
+  <div class="card">
+    <h3>Concentrix — Senior Network & SOC Representative</h3>
+    <span class="date">Jun 2025 – Present</span>
+    <ul>
+      <li>Managing FortiGate 100F with SD-WAN, VPN tunnels, and advanced security policies</li>
+      <li>Real-time SOC monitoring, DDoS mitigation, malware containment</li>
+      <li>Log analysis and threat escalation using SIEM tools</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>IND Innovation — Tech Support Engineer</h3>
+    <span class="date">Apr 2025 – Jun 2025</span>
+    <ul>
+      <li>Active Directory administration and Group Policy enforcement</li>
+      <li>Cisco AnyConnect & Zscaler VPN configuration</li>
+      <li>Endpoint hardening across Windows/Linux environments</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>NSN Computers — IT Executive (L2/L3)</h3>
+    <span class="date">Sep 2023 – Mar 2025</span>
+    <ul>
+      <li>Network troubleshooting and firewall management</li>
+      <li>Vulnerability assessments and patch management</li>
+      <li>Reduced system downtime by 20% through proactive monitoring</li>
+    </ul>
+  </div>
+</section>
+
+<!-- CONTACT -->
 <section id="contact" class="section fade-in">
-  <h2 class="glitch">ESTABLISH SECURE CONNECTION</h2>
+  <h2 class="glitch">INITIATE SECURE TRANSMISSION</h2>
   <form class="contact" action="https://formspree.io/f/xeekbokl" method="POST">
-    <input type="text" name="name" placeholder="HANDLE / NAME" required>
+    <input type="text" name="name" placeholder="OPERATIVE HANDLE" required>
     <input type="email" name="email" placeholder="COMM-LINK (EMAIL)" required>
-    <textarea name="message" placeholder="TRANSMISSION PAYLOAD..." required></textarea>
-    <button type="submit" class="btn cybr-btn primary">TRANSMIT SIGNAL</button>
+    <textarea name="message" placeholder="PAYLOAD / MESSAGE..." rows="6" required></textarea>
+    <button type="submit" class="btn cybr-btn primary">TRANSMIT TO GRID</button>
   </form>
+
   <div class="quick-links">
-    <a class="btn outline" href="mailto:rahuljha12122@gmail.com">EMAIL</a>
-    <a class="btn outline" href="https://wa.me/919318375640" target="_blank">WHATSAPP</a>
-    <a class="btn outline" href="https://www.linkedin.com/in/raahul-jha" target="_blank">LINKEDIN</a>
+    <a class="btn outline" href="mailto:rahuljha12122@gmail.com"><i class="fas fa-envelope"></i> EMAIL</a>
+    <a class="btn outline" href="https://wa.me/919318375640" target="_blank"><i class="fab fa-whatsapp"></i> WHATSAPP</a>
+    <a class="btn outline" href="https://www.linkedin.com/in/raahul-jha" target="_blank"><i class="fab fa-linkedin"></i> LINKEDIN</a>
   </div>
 </section>
 
 <footer>
-  <p>© 2026 RAHUL JHA | NEURAL NETWORK STABLE • v2.0</p>
+  <p>© 2026 RAHUL JHA • PERIMETER SECURED • MATRIX INTEGRITY 99.97%</p>
 </footer>
 
 </body>
