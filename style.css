@@ -281,3 +281,97 @@ footer {
   .main-glitch { font-size: 3.4rem; }
   .neural-hud { position: static; justify-content: center; gap: 15px; margin-bottom: 20px; }
 }
+/* ==================== SATELLITE TRANSMITTER (Top Left) ==================== */
+.satellite-transmitter {
+  position: absolute;
+  top: 25px;
+  left: 30px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.satellite {
+  position: relative;
+  width: 52px;
+  height: 52px;
+}
+
+.dish {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  width: 36px;
+  height: 28px;
+  border: 3px solid var(--accent);
+  border-bottom: none;
+  border-radius: 50% 50% 0 0;
+  background: rgba(0, 255, 65, 0.1);
+  box-shadow: 0 0 15px var(--accent);
+}
+
+.core {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  width: 16px;
+  height: 16px;
+  background: var(--accent);
+  border-radius: 50%;
+  box-shadow: 
+    0 0 12px var(--accent),
+    0 0 25px var(--accent),
+    0 0 40px #ff0055;
+  animation: core-pulse 1.8s infinite alternate ease-in-out;
+}
+
+.signal-beam {
+  position: absolute;
+  top: 26px;
+  left: 26px;
+  width: 4px;
+  height: 4px;
+  background: var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 20px var(--accent);
+  animation: transmit-beam 2.2s linear infinite;
+}
+
+.signal-beam.delay1 { animation-delay: 0.7s; }
+.signal-beam.delay2 { animation-delay: 1.4s; }
+
+.transmit-label {
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px var(--accent);
+  white-space: nowrap;
+  animation: glitch-label 3s infinite linear;
+}
+
+@keyframes core-pulse {
+  from { transform: scale(0.9); box-shadow: 0 0 12px var(--accent), 0 0 25px var(--accent); }
+  to   { transform: scale(1.15); box-shadow: 0 0 20px var(--accent), 0 0 45px #ff0055; }
+}
+
+@keyframes transmit-beam {
+  0%   { transform: scale(0.5) translate(0, 0); opacity: 0.9; }
+  100% { transform: scale(3.5) translate(60px, -25px); opacity: 0; }
+}
+
+@keyframes glitch-label {
+  0%, 100% { opacity: 1; }
+  20% { opacity: 0.6; }
+  40% { opacity: 1; }
+}
+
+/* Make sure it doesn't interfere with mobile */
+@media (max-width: 768px) {
+  .satellite-transmitter {
+    top: 15px;
+    left: 15px;
+    transform: scale(0.85);
+  }
+}
