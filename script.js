@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
     packetEl.textContent = pkts + "M";
   }, 3800);
 
-  // Typing Animation for Transmission Payload
+  // ==================== LOOPING TYPING ANIMATION FOR PAYLOAD ====================
   function startPayloadTyping() {
     const textarea = document.getElementById('message');
     const cursor = document.getElementById('payload-cursor');
@@ -36,42 +36,54 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!textarea) return;
 
-    const samplePayload = `TARGET: CORPORATE_FIREWALL_47
-EXPLOIT: SQL_INJECTION + BUFFER_OVERFLOW
-VECTOR: 192.168.1.100:443
-PAYLOAD: exec('whoami && cat /etc/passwd')
-STATUS: ACCESS_GRANTED → ROOT
-EXTRACTION: CREDENTIALS + SENSITIVE_DOCS
+    const samplePayload = `Write here your message to transmit...
 
-TRANSMISSION COMPLETE. AWAITING YOUR ORDERS.`;
+Example:
+I want to discuss a freelance cybersecurity project.
+My company needs FortiGate firewall configuration support.
+Looking for SOC monitoring consultation.`;
 
     let i = 0;
-    textarea.value = '';
+    let isTyping = true;
 
-    function typeChar() {
-      if (i < samplePayload.length) {
+    function type() {
+      if (i < samplePayload.length && isTyping) {
         textarea.value += samplePayload[i];
         i++;
 
-        if (Math.random() < 0.12) {
-          textarea.value += ['█', '▓', '▒', '░'][Math.floor(Math.random() * 4)];
-          setTimeout(() => textarea.value = textarea.value.slice(0, -1), 80);
+        // Random glitch effect
+        if (Math.random() < 0.08) {
+          textarea.value += ['█', '▓', '▒'][Math.floor(Math.random() * 3)];
+          setTimeout(() => {
+            textarea.value = textarea.value.slice(0, -1);
+          }, 60);
         }
 
         textarea.scrollTop = textarea.scrollHeight;
-        setTimeout(typeChar, Math.random() * 30 + 25);
+        setTimeout(type, Math.random() * 35 + 25);
       } else {
+        // Finished typing - pause then restart loop
         payloadGroup.classList.add('typed');
         if (cursor) cursor.style.display = 'none';
+
+        setTimeout(() => {
+          // Reset and start again
+          textarea.value = '';
+          i = 0;
+          payloadGroup.classList.remove('typed');
+          if (cursor) cursor.style.display = 'inline';
+          type(); // Restart the typing loop
+        }, 2800); // Pause 2.8 seconds before restarting
       }
     }
 
-    setTimeout(typeChar, 1200);
+    // Start the first typing cycle
+    setTimeout(type, 800);
   }
 
   startPayloadTyping();
 
-  // Form Submit with Cyber Effect
+  // Form Submit Handler
   const contactForm = document.getElementById('contact-form');
   const transmitBtn = document.getElementById('transmit-btn');
 
