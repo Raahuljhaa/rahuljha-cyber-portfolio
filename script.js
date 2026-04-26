@@ -28,7 +28,79 @@ document.addEventListener("DOMContentLoaded", () => {
     packetEl.textContent = pkts + "M";
   }, 3800);
 
-  // ==================== ULTIMATE LOOPING + MIND-BLOWING PAYLOAD ANIMATION ====================
+  // ==================== ENHANCED MATRIX RAIN + SCANNING BACKGROUND ====================
+  // Matrix Rain
+  const matrixCanvas = document.createElement('canvas');
+  matrixCanvas.style.cssText = 'position: fixed; top: 0; left: 0; z-index: -3; opacity: 0.18; pointer-events: none;';
+  document.body.appendChild(matrixCanvas);
+  const mCtx = matrixCanvas.getContext('2d');
+
+  function resizeCanvas() {
+    matrixCanvas.width = window.innerWidth;
+    matrixCanvas.height = window.innerHeight;
+  }
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
+
+  const chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲンABCDEFGHIJKLMNOPQRSTUVWXYZ$@#%&*';
+  const fontSize = 15;
+  let columns = matrixCanvas.width / fontSize;
+  let drops = Array(Math.floor(columns)).fill(1);
+
+  function drawMatrix() {
+    mCtx.fillStyle = 'rgba(2, 6, 23, 0.08)';
+    mCtx.fillRect(0, 0, matrixCanvas.width, matrixCanvas.height);
+    mCtx.fillStyle = '#00ff41';
+    mCtx.font = `${fontSize}px monospace`;
+
+    for (let i = 0; i < drops.length; i++) {
+      const text = chars[Math.floor(Math.random() * chars.length)];
+      mCtx.fillText(text, i * fontSize, drops[i] * fontSize);
+      if (drops[i] * fontSize > matrixCanvas.height && Math.random() > 0.975) drops[i] = 0;
+      drops[i] += Math.random() > 0.9 ? 1.6 : 1;
+    }
+  }
+  setInterval(drawMatrix, 45);
+
+  // Secure Communication Scanning Lines (Horizontal Radar Scan)
+  const scanCanvas = document.createElement('canvas');
+  scanCanvas.style.cssText = 'position: fixed; top: 0; left: 0; z-index: -2; opacity: 0.25; pointer-events: none;';
+  document.body.appendChild(scanCanvas);
+  const sCtx = scanCanvas.getContext('2d');
+  resizeCanvas(); // reuse function for both canvases
+
+  let scanY = 0;
+  let scanSpeed = 3;
+
+  function drawScanLines() {
+    sCtx.clearRect(0, 0, scanCanvas.width, scanCanvas.height);
+
+    // Main scanning beam
+    sCtx.strokeStyle = 'rgba(0, 255, 65, 0.6)';
+    sCtx.lineWidth = 2;
+    sCtx.shadowBlur = 25;
+    sCtx.shadowColor = '#00ff41';
+
+    sCtx.beginPath();
+    sCtx.moveTo(0, scanY);
+    sCtx.lineTo(scanCanvas.width, scanY);
+    sCtx.stroke();
+
+    // Faint trailing glow
+    sCtx.strokeStyle = 'rgba(56, 189, 248, 0.25)';
+    sCtx.lineWidth = 6;
+    sCtx.beginPath();
+    sCtx.moveTo(0, scanY - 8);
+    sCtx.lineTo(scanCanvas.width, scanY - 8);
+    sCtx.stroke();
+
+    scanY += scanSpeed;
+    if (scanY > scanCanvas.height + 100) scanY = -50; // Reset and loop continuously
+  }
+
+  setInterval(drawScanLines, 30);
+
+  // ==================== ULTIMATE LOOPING PAYLOAD TYPING ====================
   function startPayloadTyping() {
     const textarea = document.getElementById('message');
     const cursor = document.getElementById('payload-cursor');
@@ -53,23 +125,17 @@ Corporate Client`;
       if (i < samplePayload.length) {
         textarea.value += samplePayload[i];
         i++;
-
-        // Activate extreme glow while typing
         textarea.classList.add('typing-active');
 
-        // Random intense glitch bursts
         if (Math.random() < 0.13) {
           const glitchChars = ['█', '▓', '▒', '░', '■', '◆'];
           textarea.value += glitchChars[Math.floor(Math.random() * glitchChars.length)];
-          setTimeout(() => {
-            textarea.value = textarea.value.slice(0, -1);
-          }, 65);
+          setTimeout(() => textarea.value = textarea.value.slice(0, -1), 65);
         }
 
         textarea.scrollTop = textarea.scrollHeight;
         setTimeout(type, Math.random() * 28 + 18);
       } else {
-        // Cycle complete
         textarea.classList.remove('typing-active');
         payloadGroup.classList.add('typed');
         if (cursor) cursor.style.display = 'none';
@@ -79,7 +145,7 @@ Corporate Client`;
           i = 0;
           payloadGroup.classList.remove('typed');
           if (cursor) cursor.style.display = 'inline';
-          type();                    // Infinite loop
+          type();
         }, 2600);
       }
     }
@@ -89,7 +155,7 @@ Corporate Client`;
 
   startPayloadTyping();
 
-  // Form Submit Handler
+  // Form Submit
   const contactForm = document.getElementById('contact-form');
   const transmitBtn = document.getElementById('transmit-btn');
 
