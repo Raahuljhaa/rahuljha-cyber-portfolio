@@ -438,3 +438,34 @@ footer {
     transform: scale(0.85); 
   }
 }
+/* ==================== FIXED TITLE ALIGNMENT ==================== */
+
+.title-container {
+  text-align: center;
+  margin-top: 40px;           /* Push title down below satellite */
+  position: relative;
+  z-index: 10;
+}
+
+.main-glitch {
+  font-size: 4.8rem;
+  font-weight: 900;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  animation: glitch-main 2.8s infinite linear;
+  color: var(--accent);
+  margin: 0;
+}
+
+.subtitle {
+  font-size: 1.45rem;
+  margin: 20px 0 50px;
+  letter-spacing: 3px;
+  opacity: 0.95;
+}
+
+/* Make sure nav is centered too */
+nav {
+  margin-top: 30px;
+  text-align: center;
+}
